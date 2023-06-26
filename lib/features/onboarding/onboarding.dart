@@ -9,26 +9,43 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        Lottie.asset('assets/animations/financy_onboarding_animation.json'),
+      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Lottie.asset(
+          filterQuality: FilterQuality.high,
+          frameRate: FrameRate.max,
+          'assets/animations/financy_onboarding_animation.json',
+        ),
+        const SizedBox(height: 10),
         Text(
           'Spend Smarter\nSave More',
-          style: AppTextStyles.bigText.copyWith(color: AppColors.greenLightOne),
+          style:
+              AppTextStyles.mediumText.copyWith(color: AppColors.greenLightTwo),
+          textAlign: TextAlign.center,
         ),
-        ElevatedButton(
-          onPressed: () {},
-          style: ButtonStyle(
-              shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(40)))),
-          child: Text(
-            'Get Started',
-            style: AppTextStyles.mediumText.copyWith(color: AppColors.white),
+        const SizedBox(height: 10),
+        FractionallySizedBox(
+          widthFactor: 0.7,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ButtonStyle(
+                elevation: MaterialStateProperty.all(5),
+                backgroundColor:
+                    MaterialStateProperty.all(AppColors.greenLightTwo),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40)))),
+            child: Text(
+              'Get Started',
+              style: AppTextStyles.smallText.copyWith(
+                  color: AppColors.white, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
+        const SizedBox(height: 10),
         Text(
           'Already have account? sign in',
           style:
-              AppTextStyles.smallText.copyWith(color: AppColors.greenLightOne),
+              AppTextStyles.smallText.copyWith(color: AppColors.greenLightTwo),
         ),
       ]),
     );

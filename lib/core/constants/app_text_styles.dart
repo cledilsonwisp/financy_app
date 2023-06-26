@@ -7,7 +7,7 @@ class AppTextStyles {
   static TextStyle bigText =
       GoogleFonts.inter(fontSize: 50, fontWeight: FontWeight.w700);
   static TextStyle mediumText =
-      GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600);
+      GoogleFonts.inter(fontSize: 22, fontWeight: FontWeight.bold);
   static TextStyle smallText =
-      GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w400);
+      GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w300);
 }
