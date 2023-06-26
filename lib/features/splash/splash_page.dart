@@ -1,6 +1,7 @@
 import 'package:financy_app/core/constants/app_colors.dart';
 import 'package:financy_app/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class SplashPage extends StatelessWidget {
@@ -8,6 +9,11 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // Defina a cor desejada
+      ),
+    );
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
