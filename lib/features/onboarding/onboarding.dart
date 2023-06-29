@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:financy_app/core/constants/app_colors.dart';
 import 'package:financy_app/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+
+import '../../core/widgets/primary_button.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -18,35 +22,22 @@ class OnboardingPage extends StatelessWidget {
         const SizedBox(height: 10),
         Text(
           'Spend Smarter\nSave More',
-          style:
-              AppTextStyles.mediumText.copyWith(color: AppColors.greenLightTwo),
+          style: AppTextStyles.mediumText(context)
+              .copyWith(color: AppColors.greenLightTwo),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 10),
-        FractionallySizedBox(
-          widthFactor: 0.7,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ButtonStyle(
-                elevation: MaterialStateProperty.all(5),
-                backgroundColor:
-                    MaterialStateProperty.all(AppColors.greenLightTwo),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40)))),
-            child: Text(
-              'Get Started',
-              style: AppTextStyles.smallText.copyWith(
-                  color: AppColors.white, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-          ),
+        const SizedBox(height: 20),
+        PrimaryButton(
+          title: 'Get Started',
+          onTap: () => log('ALOOO'),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 20),
         Text(
           'Already have account? sign in',
-          style:
-              AppTextStyles.smallText.copyWith(color: AppColors.greenLightTwo),
+          style: AppTextStyles.smallText(context)
+              .copyWith(color: AppColors.greenLightTwo),
         ),
+        const SizedBox(height: 20),
       ]),
     );
   }
