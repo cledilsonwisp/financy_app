@@ -17,12 +17,14 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     Future.delayed(
-        const Duration(seconds: 2),
-        () => Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const OnboardingPage(),
-            )));
+      const Duration(seconds: 2),
+      () => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const OnboardingPage(),
+        ),
+      ),
+    );
   }
 
   @override
@@ -47,7 +49,8 @@ class _SplashPageState extends State<SplashPage> {
         child: Center(
           child: Text(
             "financy",
-            style: AppTextStyles.bigText(context).copyWith(color: AppColors.white),
+            style:
+                AppTextStyles.bigText(context).copyWith(color: AppColors.white),
             textAlign: TextAlign.center,
           ).animate().fade(duration: const Duration(milliseconds: 800)),
         ),

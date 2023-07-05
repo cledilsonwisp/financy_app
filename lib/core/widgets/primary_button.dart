@@ -11,28 +11,26 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FractionallySizedBox(
       widthFactor: 0.6,
-      child: Material(
-        child: Ink(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              gradient: LinearGradient(
-                  colors: onTap != null
-                      ? AppColors.greenGradient
-                      : AppColors.greyGradient,
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter)),
-          child: InkWell(
-            borderRadius: BorderRadius.circular(20),
-            onTap: onTap,
-            child: SizedBox(
-              height: 56,
-              child: Center(
-                child: Text(
-                  title,
-                  style: AppTextStyles.smallText(context).copyWith(
-                      color: AppColors.white, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
+      child: Ink(
+        height: 48,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(24),
+            gradient: LinearGradient(
+                colors: onTap != null
+                    ? AppColors.greenGradient
+                    : AppColors.greyGradient,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter)),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(24),
+          onTap: onTap,
+          child: SizedBox(
+            child: Center(
+              child: Text(
+                title,
+                style: AppTextStyles.smallText(context).copyWith(
+                    color: AppColors.white, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
             ),
           ),
