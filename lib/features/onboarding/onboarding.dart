@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:financy_app/core/constants/app_colors.dart';
 import 'package:financy_app/core/constants/app_text_styles.dart';
+import 'package:financy_app/core/widgets/multi_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -31,45 +32,26 @@ class OnboardingPage extends StatelessWidget {
           title: 'Get Started',
           onTap: () => log('ALOOO'),
         ),
-        const SizedBox(height: 20),
+        // const SizedBox(height: 20),
         MultiTextButton(
           children: [
             Text(
-              'Already have account?',
+              'Already have account? ',
               style: AppTextStyles.smallText(context)
                   .copyWith(color: AppColors.grey),
             ),
             Text(
-              ' sign in',
+              'Sign in',
               style: AppTextStyles.smallText(context).copyWith(
                   color: AppColors.greenLightTwo, fontWeight: FontWeight.bold),
             ),
           ],
           onPressed: () => log('Logou'),
         ),
-        const SizedBox(height: 20),
+        // const SizedBox(height: 20),
       ]),
     );
   }
 }
 
-class MultiTextButton extends StatelessWidget {
-  final List<Text> children;
-  final void Function()? onPressed;
-  const MultiTextButton({
-    super.key,
-    required this.children,
-    this.onPressed,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPressed,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: children,
-      ),
-    );
-  }
-}
