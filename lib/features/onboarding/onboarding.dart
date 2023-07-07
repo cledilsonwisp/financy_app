@@ -32,13 +32,44 @@ class OnboardingPage extends StatelessWidget {
           onTap: () => log('ALOOO'),
         ),
         const SizedBox(height: 20),
-        Text(
-          'Already have account? sign in',
-          style: AppTextStyles.smallText(context)
-              .copyWith(color: AppColors.greenLightTwo),
+        MultiTextButton(
+          children: [
+            Text(
+              'Already have account?',
+              style: AppTextStyles.smallText(context)
+                  .copyWith(color: AppColors.grey),
+            ),
+            Text(
+              ' sign in',
+              style: AppTextStyles.smallText(context).copyWith(
+                  color: AppColors.greenLightTwo, fontWeight: FontWeight.bold),
+            ),
+          ],
+          onPressed: () => log('Logou'),
         ),
         const SizedBox(height: 20),
       ]),
+    );
+  }
+}
+
+class MultiTextButton extends StatelessWidget {
+  final List<Text> children;
+  final void Function()? onPressed;
+  const MultiTextButton({
+    super.key,
+    required this.children,
+    this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: children,
+      ),
     );
   }
 }
