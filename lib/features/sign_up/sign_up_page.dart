@@ -26,17 +26,7 @@ class SignUpPage extends StatelessWidget {
           Form(
               child: Column(
             children: [
-              TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Your name',
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.greenLightOne),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8),
-                    ),
-                  ),
-                ),
-              )
+              CustomTextFormField()
             ],
           )),
           PrimaryButton(
@@ -61,6 +51,27 @@ class SignUpPage extends StatelessWidget {
             onPressed: () => log('Logou'),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CustomTextFormField extends StatelessWidget {
+  const CustomTextFormField({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: const InputDecoration(
+        labelText: 'Your name',
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: AppColors.greenLightOne),
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          ),
+        ),
       ),
     );
   }
