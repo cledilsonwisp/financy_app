@@ -23,10 +23,10 @@ class SignUpPage extends StatelessWidget {
           ),
           Lottie.asset("assets/animations/your_money_sign_up_animation.json",
               repeat: false, frameRate: FrameRate(60)),
-          Form(
+          const Form(
               child: Column(
             children: [
-              CustomTextFormField()
+              CustomTextFormField(label: 'Your name'),
             ],
           )),
           PrimaryButton(
@@ -56,22 +56,32 @@ class SignUpPage extends StatelessWidget {
   }
 }
 
-class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
-    super.key,
-  });
+class CustomTextFormField extends StatefulWidget {
+  const CustomTextFormField({super.key, required this.label});
 
+  final String label;
+
+  @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  final defaultBorder = const OutlineInputBorder(
+      borderSide: BorderSide(color: AppColors.greenLightOne),
+      borderRadius: BorderRadius.all(Radius.circular(8)));
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      decoration: const InputDecoration(
-        labelText: 'Your name',
-        border: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.greenLightOne),
-          borderRadius: BorderRadius.all(
-            Radius.circular(8),
-          ),
-        ),
+      decoration: InputDecoration(
+        labelText: widget.label,
+        labelStyle: AppTextStyles.smallText(context),
+        border: defaultBorder,
+        focusedBorder: defaultBorder.copyWith(
+            borderSide: const BorderSide(color: Colors.red)),
+        errorBorder: defaultBorder,
+        enabledBorder: defaultBorder,
+        disabledBorder: defaultBorder,
+        focusedErrorBorder: defaultBorder,
       ),
     );
   }
