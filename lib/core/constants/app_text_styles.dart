@@ -16,8 +16,10 @@ class AppTextStyles {
       fontWeight: FontWeight.w300);
 
   static TextStyle customStyle(
-          BuildContext context, FontWeight fontWeight, double size) =>
+          BuildContext context, FontWeight fontWeight, double size,
+          {Color? color}) =>
       GoogleFonts.inter(
+          color: color,
           fontSize:
               DinamicSizeResponsive.of(context).dynamicScaleSize(size: size),
           fontWeight: fontWeight);
