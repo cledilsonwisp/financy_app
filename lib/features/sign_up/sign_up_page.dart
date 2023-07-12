@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:financy_app/core/constants/app_colors.dart';
 import 'package:financy_app/core/constants/app_text_styles.dart';
 import 'package:financy_app/core/utils/dinamic_size_responsive.dart';
+import 'package:financy_app/core/widgets/custom_text_form_field.dart';
 import 'package:financy_app/core/widgets/multi_text_button.dart';
 import 'package:financy_app/core/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
@@ -32,21 +33,23 @@ class SignUpPage extends StatelessWidget {
                 repeat: false,
                 frameRate: FrameRate(60)),
           ),
-
           const Form(
               child: Column(
             children: [
               CustomTextFormField(
                 labelText: 'Your name',
                 hintText: 'Example',
+                keyboardingType: TextInputType.name,
               ),
               CustomTextFormField(
                 labelText: 'Your email',
                 hintText: 'Email@exemplo.com',
+                keyboardingType: TextInputType.emailAddress,
               ),
               CustomTextFormField(
                 labelText: 'Choose your password',
                 hintText: '123456%abc',
+                keyboardingType: TextInputType.visiblePassword,
               ),
               CustomTextFormField(
                 labelText: 'Confirm your password',
@@ -77,59 +80,6 @@ class SignUpPage extends StatelessWidget {
             onPressed: () => log('Logou'),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class CustomTextFormField extends StatefulWidget {
-  const CustomTextFormField(
-      {super.key,
-      required this.labelText,
-      this.hintText,
-      this.edgeInsets,
-      this.textCapitalization,
-      this.controller});
-
-  final String labelText;
-  final String? hintText;
-  final EdgeInsets? edgeInsets;
-  final TextCapitalization? textCapitalization;
-  final TextEditingController? controller;
-
-  @override
-  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
-}
-
-class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  final defaultBorder = const OutlineInputBorder(
-      borderSide: BorderSide(color: AppColors.greenLightTwo),
-      borderRadius: BorderRadius.all(Radius.circular(8)));
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: widget.edgeInsets ??
-          const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-      child: TextFormField(
-        controller: widget.controller,
-        textCapitalization:
-            widget.textCapitalization ?? TextCapitalization.none,
-        decoration: InputDecoration(
-          labelText: widget.labelText.toUpperCase(),
-          labelStyle: AppTextStyles.customStyle(context, FontWeight.w400, 14,
-              color: AppColors.darkGrey),
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          hintText: widget.hintText,
-          hintStyle: AppTextStyles.customStyle(context, FontWeight.w300, 14,
-              color: AppColors.darkGrey),
-          border: defaultBorder,
-          focusedBorder: defaultBorder,
-          errorBorder: defaultBorder.copyWith(
-              borderSide: const BorderSide(color: Colors.red)),
-          enabledBorder: defaultBorder,
-          disabledBorder: defaultBorder,
-          focusedErrorBorder: defaultBorder,
-        ),
       ),
     );
   }
