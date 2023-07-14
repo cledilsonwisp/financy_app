@@ -7,11 +7,20 @@ import 'package:financy_app/core/widgets/custom_text_form_field.dart';
 import 'package:financy_app/core/widgets/multi_text_button.dart';
 import 'package:financy_app/core/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  bool isHiddendPassword = true;
+  bool isHiddendConfirmPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +33,7 @@ class SignUpPage extends StatelessWidget {
             style: AppTextStyles.mediumText(context).copyWith(
                 color: AppColors.greenLightTwo,
                 fontSize: ScreenUtil().setSp(36)),
-          ),
+          ).animate().fade(),
           SizedBox(
             height:
                 DinamicSizeResponsive.of(context).dynamicScaleSize(size: 320),
@@ -33,15 +42,15 @@ class SignUpPage extends StatelessWidget {
                 repeat: false,
                 frameRate: FrameRate(60)),
           ),
-          const Form(
+          Form(
               child: Column(
             children: [
-              CustomTextFormField(
+              const CustomTextFormField(
                 labelText: 'Your name',
                 hintText: 'Example',
                 keyboardingType: TextInputType.name,
               ),
-              CustomTextFormField(
+              const CustomTextFormField(
                 labelText: 'Your email',
                 hintText: 'Email@exemplo.com',
                 keyboardingType: TextInputType.emailAddress,
@@ -50,19 +59,42 @@ class SignUpPage extends StatelessWidget {
                 labelText: 'Choose your password',
                 hintText: '123456%abc',
                 keyboardingType: TextInputType.visiblePassword,
+                obscure: isHiddendPassword,
+                suffix: InkWell(
+                    borderRadius: const BorderRadius.all(Radius.circular(23)),
+                    child: isHiddendPassword
+                        ? const Icon(Icons.visibility)
+                        : const Icon(Icons.visibility_off),
+                    onTap: () {
+                      log("Clicou button password");
+                      setState(() {
+                        isHiddendPassword = !isHiddendPassword;
+                      });
+                    }),
               ),
               CustomTextFormField(
                 labelText: 'Confirm your password',
                 hintText: '********',
+                obscure: isHiddendConfirmPassword,
+                suffix: InkWell(
+                    borderRadius: const BorderRadius.all(Radius.circular(23)),
+                    child: isHiddendConfirmPassword
+                        ? const Icon(Icons.visibility)
+                        : const Icon(Icons.visibility_off),
+                    onTap: () {
+                      log("Clicou button password");
+                      setState(() {
+                        isHiddendConfirmPassword = !isHiddendConfirmPassword;
+                      });
+                    }),
               ),
             ],
-          )),
+          ).animate().slideX()),
           const SizedBox(height: 10),
           PrimaryButton(
             title: 'Sign up',
             onTap: () => log('ALOOO'),
           ),
-          // const SizedBox(height: 20),
           MultiTextButton(
             children: [
               Text(
