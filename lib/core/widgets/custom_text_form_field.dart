@@ -1,4 +1,3 @@
-
 import 'package:financy_app/core/constants/app_colors.dart';
 import 'package:financy_app/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +12,9 @@ class CustomTextFormField extends StatefulWidget {
       this.controller,
       this.keyboardingType,
       this.maxLength,
-      this.textInputAction});
+      this.textInputAction,
+      this.suffix,
+      this.obscure});
 
   final String labelText;
   final String? hintText;
@@ -23,6 +24,8 @@ class CustomTextFormField extends StatefulWidget {
   final TextInputType? keyboardingType;
   final int? maxLength;
   final TextInputAction? textInputAction;
+  final Widget? suffix;
+  final bool? obscure;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -42,9 +45,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         maxLength: widget.maxLength,
         keyboardType: widget.keyboardingType,
         controller: widget.controller,
+        obscureText: widget.obscure ?? false,
         textCapitalization:
             widget.textCapitalization ?? TextCapitalization.none,
         decoration: InputDecoration(
+          suffixIcon: widget.suffix,
           labelText: widget.labelText.toUpperCase(),
           labelStyle: AppTextStyles.customStyle(context, FontWeight.w400, 14,
               color: AppColors.darkGrey),
