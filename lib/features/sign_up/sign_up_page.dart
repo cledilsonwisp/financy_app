@@ -24,6 +24,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     return Scaffold(
       body: ListView(
         children: [
@@ -31,8 +32,7 @@ class _SignUpPageState extends State<SignUpPage> {
             'Start Saving\nyour money!',
             textAlign: TextAlign.center,
             style: AppTextStyles.mediumText(context).copyWith(
-                color: AppColors.greenLightTwo,
-                fontSize: ScreenUtil().setSp(36)),
+                color: AppColors.greenTwo, fontSize: ScreenUtil().setSp(36)),
           ).animate().fade(),
           SizedBox(
             height:
@@ -43,57 +43,94 @@ class _SignUpPageState extends State<SignUpPage> {
                 frameRate: FrameRate(60)),
           ),
           Form(
+              key: formKey,
               child: Column(
-            children: [
-              const CustomTextFormField(
-                labelText: 'Your name',
-                hintText: 'Example',
-                keyboardingType: TextInputType.name,
-              ),
-              const CustomTextFormField(
-                labelText: 'Your email',
-                hintText: 'Email@exemplo.com',
-                keyboardingType: TextInputType.emailAddress,
-              ),
-              CustomTextFormField(
-                labelText: 'Choose your password',
-                hintText: '123456%abc',
-                keyboardingType: TextInputType.visiblePassword,
-                obscure: isHiddendPassword,
-                suffix: InkWell(
-                    borderRadius: const BorderRadius.all(Radius.circular(23)),
-                    child: isHiddendPassword
-                        ? const Icon(Icons.visibility)
-                        : const Icon(Icons.visibility_off),
-                    onTap: () {
-                      log("Clicou button password");
-                      setState(() {
-                        isHiddendPassword = !isHiddendPassword;
-                      });
-                    }),
-              ),
-              CustomTextFormField(
-                labelText: 'Confirm your password',
-                hintText: '********',
-                obscure: isHiddendConfirmPassword,
-                suffix: InkWell(
-                    borderRadius: const BorderRadius.all(Radius.circular(23)),
-                    child: isHiddendConfirmPassword
-                        ? const Icon(Icons.visibility)
-                        : const Icon(Icons.visibility_off),
-                    onTap: () {
-                      log("Clicou button password");
-                      setState(() {
-                        isHiddendConfirmPassword = !isHiddendConfirmPassword;
-                      });
-                    }),
-              ),
-            ],
-          ).animate().slideX()),
+                children: [
+                  CustomTextFormField(
+                    labelText: 'Your name',
+                    hintText: 'Example',
+                    keyboardingType: TextInputType.name,
+                    validator: (value) {
+                      if (value?.isEmpty == true) {
+                        return "Esse campo não pode ser vazio";
+                      }
+                      return null;
+                    },
+                  ),
+                  CustomTextFormField(
+                    labelText: 'Your email',
+                    hintText: 'Email@exemplo.com',
+                    keyboardingType: TextInputType.emailAddress,
+                    validator: (value) {
+                      if (value?.isEmpty == true) {
+                        return "Esse campo não pode ser vazio";
+                      }
+                      return null;
+                    },
+                  ),
+                  CustomTextFormField(
+                    labelText: "Choose your password",
+                    hintText: "123456%abc",
+                    helperText: "Must have at least 8 characters, 1 capital letter and 1 number.",
+                    keyboardingType: TextInputType.visiblePassword,
+                    obscure: isHiddendPassword,
+                    suffix: InkWell(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(23)),
+                        child: isHiddendPassword
+                            ? const Icon(Icons.visibility)
+                            : const Icon(Icons.visibility_off),
+                        onTap: () {
+                          log("Clicou button password");
+                          setState(() {
+                            isHiddendPassword = !isHiddendPassword;
+                          });
+                        }),
+                    validator: (value) {
+                      if (value?.isEmpty == true) {
+                        return "Esse campo não pode ser vazio";
+                      }
+                      return null;
+                    },
+                  ),
+                  CustomTextFormField(
+                    labelText: 'Confirm your password',
+                    hintText: '********',
+                    obscure: isHiddendConfirmPassword,
+                    suffix: InkWell(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(23)),
+                        child: isHiddendConfirmPassword
+                            ? const Icon(Icons.visibility)
+                            : const Icon(Icons.visibility_off),
+                        onTap: () {
+                          log("Clicou button password");
+                          setState(() {
+                            isHiddendConfirmPassword =
+                                !isHiddendConfirmPassword;
+                          });
+                        }),
+                    validator: (value) {
+                      if (value?.isEmpty == true) {
+                        return "Esse campo não pode ser vazio";
+                      }
+                      return null;
+                    },
+                  ),
+                ],
+              ).animate().slideX()),
           const SizedBox(height: 10),
           PrimaryButton(
             title: 'Sign up',
-            onTap: () => log('ALOOO'),
+            onTap: () {
+              var valid = formKey.currentState != null &&
+                  formKey.currentState!.validate();
+              if (valid) {
+                log("Lógica  de login");
+              } else {
+                log("Lógica  de login");
+              }
+            },
           ),
           MultiTextButton(
             children: [
@@ -105,8 +142,7 @@ class _SignUpPageState extends State<SignUpPage> {
               Text(
                 'Sign in',
                 style: AppTextStyles.smallText(context).copyWith(
-                    color: AppColors.greenLightTwo,
-                    fontWeight: FontWeight.bold),
+                    color: AppColors.greenTwo, fontWeight: FontWeight.bold),
               ),
             ],
             onPressed: () => log('Logou'),

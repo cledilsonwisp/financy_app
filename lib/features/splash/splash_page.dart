@@ -41,8 +41,8 @@ class _SplashPageState extends State<SplashPage> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              AppColors.greenLightOne,
-              AppColors.greenLightTwo,
+              AppColors.greenOne,
+              AppColors.greenTwo,
             ],
           ),
         ),
