@@ -14,6 +14,12 @@ class AppTextStyles {
   static TextStyle smallText(BuildContext context) => GoogleFonts.inter(
       fontSize: DinamicSizeResponsive.of(context).dynamicScaleSize(size: 15),
       fontWeight: FontWeight.w300);
+  static TextStyle inputText(BuildContext context) => GoogleFonts.inter(
+      fontSize: DinamicSizeResponsive.of(context).dynamicScaleSize(size: 14),
+      fontWeight: FontWeight.w500);
+  static TextStyle inputHintText(BuildContext context) => GoogleFonts.inter(
+      fontSize: DinamicSizeResponsive.of(context).dynamicScaleSize(size: 12),
+      fontWeight: FontWeight.w400);
 
   static TextStyle customStyle(
           BuildContext context, FontWeight fontWeight, double size,
