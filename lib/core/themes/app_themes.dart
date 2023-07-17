@@ -6,7 +6,7 @@ class AppTheme {
   static ThemeData defaultTheme() => ThemeData(
         inputDecorationTheme: const InputDecorationTheme(
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.greenLightOne),
+            borderSide: BorderSide(color: AppColors.greenOne),
             borderRadius: BorderRadius.all(Radius.circular(8)),
           ),
         ),

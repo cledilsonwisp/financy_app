@@ -14,7 +14,9 @@ class CustomTextFormField extends StatefulWidget {
       this.maxLength,
       this.textInputAction,
       this.suffix,
-      this.obscure});
+      this.obscure,
+      this.validator,
+      this.helperText});
 
   final String labelText;
   final String? hintText;
@@ -26,6 +28,8 @@ class CustomTextFormField extends StatefulWidget {
   final TextInputAction? textInputAction;
   final Widget? suffix;
   final bool? obscure;
+  final FormFieldValidator<String>? validator;
+  final String? helperText;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -33,7 +37,7 @@ class CustomTextFormField extends StatefulWidget {
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
   final defaultBorder = const OutlineInputBorder(
-      borderSide: BorderSide(color: AppColors.greenLightTwo),
+      borderSide: BorderSide(color: AppColors.greenTwo),
       borderRadius: BorderRadius.all(Radius.circular(8)));
   @override
   Widget build(BuildContext context) {
@@ -41,7 +45,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       padding: widget.edgeInsets ??
           const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
       child: TextFormField(
+        validator: widget.validator,
         textInputAction: widget.textInputAction,
+        style: AppTextStyles.inputText(context)
+            .copyWith(color: AppColors.greenOne),
         maxLength: widget.maxLength,
         keyboardType: widget.keyboardingType,
         controller: widget.controller,
@@ -49,8 +56,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         textCapitalization:
             widget.textCapitalization ?? TextCapitalization.none,
         decoration: InputDecoration(
+          helperText: widget.helperText,
+          helperMaxLines: 3,
           suffixIcon: widget.suffix,
           labelText: widget.labelText.toUpperCase(),
+          helperStyle: AppTextStyles.customStyle(context, FontWeight.w400, 14,
+              color: AppColors.darkGrey),
           labelStyle: AppTextStyles.customStyle(context, FontWeight.w400, 14,
               color: AppColors.darkGrey),
           floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -60,9 +71,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           border: defaultBorder,
           focusedBorder: defaultBorder,
           errorBorder: defaultBorder.copyWith(
-              borderSide: const BorderSide(color: Colors.red)),
+            borderSide: const BorderSide(color: Colors.red),
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+          ),
           enabledBorder: defaultBorder,
-          disabledBorder: defaultBorder,
+          disabledBorder: defaultBorder.copyWith(
+            borderSide: const BorderSide(color: Colors.red),
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+          ),
           focusedErrorBorder: defaultBorder,
         ),
       ),
