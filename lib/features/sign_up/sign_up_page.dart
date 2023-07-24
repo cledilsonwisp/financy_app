@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:financy_app/core/constants/app_colors.dart';
 import 'package:financy_app/core/constants/app_text_styles.dart';
 import 'package:financy_app/core/utils/dinamic_size_responsive.dart';
+import 'package:financy_app/core/utils/validator.dart';
 import 'package:financy_app/core/widgets/custom_text_form_field.dart';
 import 'package:financy_app/core/widgets/multi_text_button.dart';
 import 'package:financy_app/core/widgets/primary_button.dart';
@@ -21,6 +22,7 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   bool isHiddendPassword = true;
   bool isHiddendConfirmPassword = true;
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -46,77 +48,57 @@ class _SignUpPageState extends State<SignUpPage> {
               key: formKey,
               child: Column(
                 children: [
-                  CustomTextFormField(
-                    labelText: 'Your name',
-                    hintText: 'Example',
-                    keyboardingType: TextInputType.name,
-                    validator: (value) {
-                      if (value?.isEmpty == true) {
-                        return "Esse campo não pode ser vazio";
-                      }
-                      return null;
-                    },
-                  ),
-                  CustomTextFormField(
+                  const CustomTextFormField(
+                      labelText: 'Your name',
+                      hintText: 'Example',
+                      keyboardingType: TextInputType.name,
+                      validator: Validator.validateName),
+                  const CustomTextFormField(
                     labelText: 'Your email',
                     hintText: 'Email@exemplo.com',
                     keyboardingType: TextInputType.emailAddress,
-                    validator: (value) {
-                      if (value?.isEmpty == true) {
-                        return "Esse campo não pode ser vazio";
-                      }
-                      return null;
-                    },
+                    validator: Validator.validateEmail,
                   ),
-                  CustomTextFormField(
-                    labelText: "Choose your password",
-                    hintText: "123456%abc",
-                    helperText: "Must have at least 8 characters, 1 capital letter and 1 number.",
-                    keyboardingType: TextInputType.visiblePassword,
-                    obscure: isHiddendPassword,
-                    suffix: InkWell(
+                  StatefulBuilder(
+                    builder: (context, setState) => CustomTextFormField(
+                      labelText: "Choose your password",
+                      hintText: "123456%abc",
+                      controller: passwordController,
+                      helperText:
+                          "Must have at least 8 characters, 1 capital letter and 1 number.",
+                      keyboardingType: TextInputType.visiblePassword,
+                      obscure: isHiddendPassword,
+                      suffix: InkWell(
                         borderRadius:
                             const BorderRadius.all(Radius.circular(23)),
                         child: isHiddendPassword
                             ? const Icon(Icons.visibility)
                             : const Icon(Icons.visibility_off),
-                        onTap: () {
-                          log("Clicou button password");
-                          setState(() {
-                            isHiddendPassword = !isHiddendPassword;
-                          });
-                        }),
-                    validator: (value) {
-                      if (value?.isEmpty == true) {
-                        return "Esse campo não pode ser vazio";
-                      }
-                      return null;
-                    },
+                        onTap: () => setState
+                            .call(() => isHiddendPassword = !isHiddendPassword),
+                      ),
+                      validator: Validator.validatePassword,
+                    ),
                   ),
-                  CustomTextFormField(
-                    labelText: 'Confirm your password',
-                    hintText: '********',
-                    obscure: isHiddendConfirmPassword,
-                    suffix: InkWell(
+                  StatefulBuilder(
+                    builder: (context, setState) => CustomTextFormField(
+                      labelText: 'Confirm your password',
+                      hintText: '********',
+                      obscure: isHiddendConfirmPassword,
+                      suffix: InkWell(
                         borderRadius:
                             const BorderRadius.all(Radius.circular(23)),
                         child: isHiddendConfirmPassword
                             ? const Icon(Icons.visibility)
                             : const Icon(Icons.visibility_off),
-                        onTap: () {
-                          log("Clicou button password");
-                          setState(() {
+                        onTap: () => setState.call(() =>
                             isHiddendConfirmPassword =
-                                !isHiddendConfirmPassword;
-                          });
-                        }),
-                    validator: (value) {
-                      if (value?.isEmpty == true) {
-                        return "Esse campo não pode ser vazio";
-                      }
-                      return null;
-                    },
-                  ),
+                                !isHiddendConfirmPassword),
+                      ),
+                      validator: (value) => Validator.validateConfirmPassword(
+                          value, passwordController.text),
+                    ),
+                  )
                 ],
               ).animate().slideX()),
           const SizedBox(height: 10),
@@ -152,3 +134,4 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
+
