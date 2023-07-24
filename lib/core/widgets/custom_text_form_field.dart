@@ -48,7 +48,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         validator: widget.validator,
         textInputAction: widget.textInputAction,
         style: AppTextStyles.inputText(context)
-            .copyWith(color: AppColors.greenOne),
+            .copyWith(color: AppColors.darkGrey),
         maxLength: widget.maxLength,
         keyboardType: widget.keyboardingType,
         controller: widget.controller,
