@@ -1,5 +1,5 @@
 import 'package:financy_app/core/themes/app_themes.dart';
-import 'package:financy_app/features/sign_up/sign_up_page.dart';
+import 'package:financy_app/features/sign_up/presenter/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

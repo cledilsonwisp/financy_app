@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:financy_app/features/sign_up/sign_up_event.dart';
-import 'package:financy_app/features/sign_up/sign_up_state.dart';
+import 'package:financy_app/features/sign_up/presenter/sign_up_event.dart';
+import 'package:financy_app/features/sign_up/presenter/sign_up_state.dart';
 
 class SignUpClass extends Bloc<SignUpEvent, SignUpState> {
   SignUpClass() : super(SignUpStartedState()) {
