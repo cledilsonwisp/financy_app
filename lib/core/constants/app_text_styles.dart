@@ -30,3 +30,25 @@ class AppTextStyles {
               DinamicSizeResponsive.of(context).dynamicScaleSize(size: size),
           fontWeight: fontWeight);
 }
+
+class ShadowsText {
+  ShadowsText._();
+ static List<Shadow> textSoft = [
+    Shadow(
+        color: Colors.black.withOpacity(.25),
+        offset: const Offset(0, 2),
+        blurRadius: 4),
+  ];
+   static List<Shadow> text = [
+    Shadow(
+        color: Colors.black.withOpacity(.6),
+        offset: const Offset(0, 2),
+        blurRadius: 2),
+  ];
+   static List<Shadow> textStrong = [
+    Shadow(
+        color: Colors.black.withOpacity(.6),
+        offset: const Offset(0, 4),
+        blurRadius: 6),
+  ];
+}

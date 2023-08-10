@@ -7,6 +7,8 @@ import 'package:financy_app/core/utils/validator.dart';
 import 'package:financy_app/core/widgets/custom_text_form_field.dart';
 import 'package:financy_app/core/widgets/multi_text_button.dart';
 import 'package:financy_app/core/widgets/primary_button.dart';
+import 'package:financy_app/features/sign_up/presenter/sign_up_controller.dart';
+import 'package:financy_app/features/sign_up/presenter/sign_up_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,6 +25,48 @@ class _SignUpPageState extends State<SignUpPage> {
   bool isHiddendPassword = true;
   bool isHiddendConfirmPassword = true;
   final passwordController = TextEditingController();
+
+  final controller = SignUpControllerClass();
+  @override
+  void initState() {
+    controller.addListener(() {
+      if (controller.state is SignUpLoadingState) {
+        showDialog(
+          context: context,
+          builder: (context) => const Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
+      }
+      if (controller.state is SignUpSuccessState) {
+        Navigator.pop(context);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const Scaffold(
+                body: Text('Nova tela'),
+              ),
+            ));
+      }
+      if (controller.state is SignUpErrorState) {
+        showDialog(
+            context: context,
+            builder: (context) => const Scaffold(
+                  body: SizedBox(
+                    height: 150,
+                    child: Text('Erro ao logar, tente novamente'),
+                  ),
+                ));
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +152,7 @@ class _SignUpPageState extends State<SignUpPage> {
               var valid = formKey.currentState != null &&
                   formKey.currentState!.validate();
               if (valid) {
-                log("Lógica  de login");
+                controller.doSignUp();
               } else {
                 log("Lógica  de login");
               }
@@ -134,4 +178,3 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
-
