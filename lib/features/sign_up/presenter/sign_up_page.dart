@@ -4,6 +4,8 @@ import 'package:financy_app/core/constants/app_colors.dart';
 import 'package:financy_app/core/constants/app_text_styles.dart';
 import 'package:financy_app/core/utils/dinamic_size_responsive.dart';
 import 'package:financy_app/core/utils/validator.dart';
+import 'package:financy_app/core/widgets/custom_bottom_sheet.dart';
+import 'package:financy_app/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:financy_app/core/widgets/custom_text_form_field.dart';
 import 'package:financy_app/core/widgets/multi_text_button.dart';
 import 'package:financy_app/core/widgets/primary_button.dart';
@@ -33,9 +35,7 @@ class _SignUpPageState extends State<SignUpPage> {
       if (controller.state is SignUpLoadingState) {
         showDialog(
           context: context,
-          builder: (context) => const Center(
-            child: CircularProgressIndicator(),
-          ),
+          builder: (context) => const CustomCircularProgressIndicator(),
         );
       }
       if (controller.state is SignUpSuccessState) {
@@ -49,37 +49,8 @@ class _SignUpPageState extends State<SignUpPage> {
             ));
       }
       if (controller.state is SignUpErrorState) {
-        showModalBottomSheet<void>(
-          context: context,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
-          ),
-          builder: (BuildContext context) {
-            return SizedBox(
-              height: 250,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Text('Ops, Algo deu errado'),
-                    const SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 16, horizontal: 32),
-                      child: PrimaryButton(
-                          title: 'Tentar Novamento',
-                          onTap: () => Navigator.pop(context)),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
-        );
+        Navigator.pop(context);
+        customModalBottomSheet(context);
       }
     });
     super.initState();
