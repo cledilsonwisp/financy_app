@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 class PrimaryButton extends StatelessWidget {
   final void Function()? onTap;
   final String title;
-  const PrimaryButton({super.key, this.onTap, required this.title});
+  final double? borderRadius;
+  const PrimaryButton(
+      {super.key, this.onTap, required this.title, this.borderRadius});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class PrimaryButton extends StatelessWidget {
       child: Ink(
         height: 48,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(borderRadius ?? 24),
             gradient: LinearGradient(
                 colors: onTap != null
                     ? AppColors.greenGradient
