@@ -1,4 +1,4 @@
-import 'package:financy_app/core/constants/app_colors.dart';
+import 'package:financy_app/src/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomCircularProgressIndicator extends StatelessWidget {

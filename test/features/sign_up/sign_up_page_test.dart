@@ -1,9 +1,9 @@
-import 'package:financy_app/features/sign_up/presenter/sign_up_page.dart';
+import 'package:financy_app/src/features/auth/ui/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Deve encontrar o lottie animation', (WidgetTester tester) async {
+  testWidgets('Deve encontrar o title da page', (WidgetTester tester) async {
     await tester.pumpWidget(const MaterialApp(
       home: SignUpPage(),
     ));

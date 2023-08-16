@@ -1,4 +1,4 @@
-import 'package:financy_app/core/utils/dinamic_size_responsive.dart';
+import 'package:financy_app/src/core/utils/dinamic_size_responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,19 +33,19 @@ class AppTextStyles {
 
 class ShadowsText {
   ShadowsText._();
- static List<Shadow> textSoft = [
+  static List<Shadow> textSoft = [
     Shadow(
         color: Colors.black.withOpacity(.25),
         offset: const Offset(0, 2),
         blurRadius: 4),
   ];
-   static List<Shadow> text = [
+  static List<Shadow> text = [
     Shadow(
         color: Colors.black.withOpacity(.6),
         offset: const Offset(0, 2),
         blurRadius: 2),
   ];
-   static List<Shadow> textStrong = [
+  static List<Shadow> textStrong = [
     Shadow(
         color: Colors.black.withOpacity(.6),
         offset: const Offset(0, 4),

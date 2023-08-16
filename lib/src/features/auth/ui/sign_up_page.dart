@@ -1,16 +1,16 @@
 import 'dart:developer';
 
-import 'package:financy_app/core/constants/app_colors.dart';
-import 'package:financy_app/core/constants/app_text_styles.dart';
-import 'package:financy_app/core/utils/dinamic_size_responsive.dart';
-import 'package:financy_app/core/utils/validator.dart';
-import 'package:financy_app/core/widgets/custom_bottom_sheet.dart';
-import 'package:financy_app/core/widgets/custom_circular_progress_indicator.dart';
-import 'package:financy_app/core/widgets/custom_text_form_field.dart';
-import 'package:financy_app/core/widgets/multi_text_button.dart';
-import 'package:financy_app/core/widgets/primary_button.dart';
-import 'package:financy_app/features/sign_up/presenter/sign_up_controller.dart';
-import 'package:financy_app/features/sign_up/presenter/sign_up_state.dart';
+import 'package:financy_app/src/core/constants/app_colors.dart';
+import 'package:financy_app/src/core/constants/app_text_styles.dart';
+import 'package:financy_app/src/core/utils/dinamic_size_responsive.dart';
+import 'package:financy_app/src/core/utils/validator.dart';
+import 'package:financy_app/src/core/widgets/custom_bottom_sheet.dart';
+import 'package:financy_app/src/core/widgets/custom_circular_progress_indicator.dart';
+import 'package:financy_app/src/core/widgets/custom_text_form_field.dart';
+import 'package:financy_app/src/core/widgets/multi_text_button.dart';
+import 'package:financy_app/src/core/widgets/primary_button.dart';
+import 'package:financy_app/src/features/auth/sign_up_controller.dart';
+import 'package:financy_app/src/features/auth/sign_up_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

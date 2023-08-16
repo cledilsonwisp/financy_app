@@ -1,5 +1,5 @@
-import 'package:financy_app/core/constants/app_colors.dart';
-import 'package:financy_app/core/constants/app_text_styles.dart';
+import 'package:financy_app/src/core/constants/app_colors.dart';
+import 'package:financy_app/src/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatefulWidget {

@@ -1,8 +1,9 @@
-import 'package:financy_app/core/constants/app_text_styles.dart';
-import 'package:financy_app/core/widgets/primary_button.dart';
+import 'package:financy_app/src/core/constants/app_text_styles.dart';
+import 'package:financy_app/src/core/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 
-Future<void> customModalBottomSheet(BuildContext context) {
+Future<void> customModalBottomSheet(BuildContext context,
+    {String? content, String? buttonText}) {
   return showModalBottomSheet<void>(
     context: context,
     shape: const RoundedRectangleBorder(
@@ -20,7 +21,7 @@ Future<void> customModalBottomSheet(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(
-                'Ops, Algo deu errado.',
+                content ?? 'Ops, Algo deu errado.',
                 style: AppTextStyles.customStyle(context, FontWeight.w500, 20),
               ),
               const SizedBox(height: 20),
@@ -28,7 +29,7 @@ Future<void> customModalBottomSheet(BuildContext context) {
                 padding:
                     const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
                 child: PrimaryButton(
-                  title: 'Tentar Novamento',
+                  title: buttonText ?? 'Tentar Novamento',
                   onTap: () => Navigator.pop(context),
                   borderRadius: 18,
                 ),

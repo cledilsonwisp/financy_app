@@ -1,5 +1,5 @@
-import 'package:financy_app/core/widgets/primary_button.dart';
-import 'package:financy_app/features/onboarding/onboarding.dart';
+import 'package:financy_app/src/core/widgets/primary_button.dart';
+import 'package:financy_app/src/features/onboarding/ui/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
