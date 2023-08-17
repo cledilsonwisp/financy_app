@@ -1,9 +1,9 @@
 import 'package:financy_app/src/core/constants/app_colors.dart';
 import 'package:financy_app/src/core/constants/app_text_styles.dart';
-import 'package:financy_app/src/features/onboarding/ui/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -17,14 +17,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     Future.delayed(
-      const Duration(seconds: 2),
-      () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const OnboardingPage(),
-        ),
-      ),
-    );
+        const Duration(seconds: 2), () => Modular.to.navigate('/onboarding'));
   }
 
   @override

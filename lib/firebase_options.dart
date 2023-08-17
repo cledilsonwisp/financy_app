@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDdopfxe6UkAkDaHJs3JWqjvxZqqMuDlIg',
-    appId: '1:678866332110:android:5867016b6e401ffe47239f',
-    messagingSenderId: '678866332110',
-    projectId: 'clean-dart2-login',
-    storageBucket: 'clean-dart2-login.appspot.com',
+    apiKey: 'AIzaSyB_Slka-0swmskKhoyUUxfG0b8bJWu66vE',
+    appId: '1:549716610408:android:1e3b0d6d0af4da716adadd',
+    messagingSenderId: '549716610408',
+    projectId: 'financy-app-9e560',
+    storageBucket: 'financy-app-9e560.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCZTNJW03tq1JTWmy3Wyfos4r9cQBKvW10',
-    appId: '1:678866332110:ios:7a19014e380cc70647239f',
-    messagingSenderId: '678866332110',
-    projectId: 'clean-dart2-login',
-    storageBucket: 'clean-dart2-login.appspot.com',
-    iosClientId: '678866332110-8ff3orrg4sq3201fn3tp4k2kii9bo8rb.apps.googleusercontent.com',
+    apiKey: 'AIzaSyA5AJPdXmrpfI7xtMR2--XvK3Fh1JHNFso',
+    appId: '1:549716610408:ios:bd7a3e069b7fd5806adadd',
+    messagingSenderId: '549716610408',
+    projectId: 'financy-app-9e560',
+    storageBucket: 'financy-app-9e560.appspot.com',
+    iosClientId: '549716610408-005oq8974g0jaa0tfjrqbb3kphqks7iv.apps.googleusercontent.com',
     iosBundleId: 'dev.cleh.financy.financyApp',
   );
 }

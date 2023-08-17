@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "678866332110",
-    "project_id": "clean-dart2-login",
-    "storage_bucket": "clean-dart2-login.appspot.com"
+    "project_number": "549716610408",
+    "project_id": "financy-app-9e560",
+    "storage_bucket": "financy-app-9e560.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:678866332110:android:5867016b6e401ffe47239f",
+        "mobilesdk_app_id": "1:549716610408:android:1e3b0d6d0af4da716adadd",
         "android_client_info": {
           "package_name": "dev.cleh.financy.financy_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "678866332110-5b8s4hrgqqmet6e8mcbir05427ddf80s.apps.googleusercontent.com",
+          "client_id": "549716610408-hfbja4g8c3uuhd4lpadgoqlog1oq5fvh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDdopfxe6UkAkDaHJs3JWqjvxZqqMuDlIg"
+          "current_key": "AIzaSyB_Slka-0swmskKhoyUUxfG0b8bJWu66vE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "678866332110-5b8s4hrgqqmet6e8mcbir05427ddf80s.apps.googleusercontent.com",
+              "client_id": "549716610408-hfbja4g8c3uuhd4lpadgoqlog1oq5fvh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

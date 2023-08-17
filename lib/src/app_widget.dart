@@ -1,6 +1,6 @@
 import 'package:financy_app/src/core/themes/app_themes.dart';
-import 'package:financy_app/src/features/auth/ui/sign_up_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class App extends StatelessWidget {
@@ -13,10 +13,11 @@ class App extends StatelessWidget {
       designSize: const Size(375, 812), // Tamanho base do design
       scaleByHeight: true,
     );
-    return MaterialApp(
+    return MaterialApp.router(
       theme: AppTheme.defaultTheme(),
       debugShowCheckedModeBanner: false,
-      home: const SignUpPage(),
+      routerDelegate: Modular.routerDelegate,
+      routeInformationParser: Modular.routeInformationParser,
     );
   }
 }

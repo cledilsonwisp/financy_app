@@ -1,4 +1,4 @@
-import 'package:financy_app/src/features/splash/splash_page.dart';
+import 'package:financy_app/src/features/splash/ui/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
