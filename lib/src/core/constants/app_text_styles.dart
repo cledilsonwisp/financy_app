@@ -5,9 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTextStyles {
   AppTextStyles._();
 
-  static TextStyle bigText(BuildContext context) => GoogleFonts.inter(
-      fontSize: DinamicSizeResponsive.of(context).dynamicScaleSize(size: 50),
-      fontWeight: FontWeight.w700);
+  static TextStyle bigText(BuildContext context, Color? color) =>
+      GoogleFonts.inter(
+          fontSize:
+              DinamicSizeResponsive.of(context).dynamicScaleSize(size: 50),
+          fontWeight: FontWeight.w700,
+          color: color);
   static TextStyle mediumText(BuildContext context) => GoogleFonts.inter(
       fontSize: DinamicSizeResponsive.of(context).dynamicScaleSize(size: 36),
       fontWeight: FontWeight.w700);

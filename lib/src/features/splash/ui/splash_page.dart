@@ -42,7 +42,7 @@ class _SplashPageState extends State<SplashPage> {
         child: Center(
           child: Text(
             "financy",
-            style: AppTextStyles.bigText(context),
+            style: AppTextStyles.bigText(context, Colors.white),
             textAlign: TextAlign.center,
           ).animate().fade(duration: const Duration(milliseconds: 800)),
         ),

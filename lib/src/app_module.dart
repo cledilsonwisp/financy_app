@@ -7,12 +7,11 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 class AppModule extends Module {
   @override
-  void routes(RouteManager r) {
-    ChildRoute('/', child: (_) => const SplashPage());
-    ChildRoute('/onboarding', child: (_) => const OnboardingPage());
-    ChildRoute('/login', child: (_) => const LoginPage());
-    ChildRoute('/sign', child: (_) => const SignUpPage());
-    ChildRoute('/plash', child: (_) => const HomePage());
-    super.routes(r);
-  }
+  List<ModularRoute> get routes => [
+        ChildRoute('/', child: (_, __) => const SplashPage()),
+        ChildRoute('/onboarding', child: (_, __) => const OnboardingPage()),
+        ChildRoute('/login', child: (_, __) => const LoginPage()),
+        ChildRoute('/sign', child: (_, __) => const SignUpPage()),
+        ChildRoute('/plash', child: (_, __) => const HomePage())
+      ];
 }

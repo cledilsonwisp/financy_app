@@ -1,4 +1,4 @@
-import 'package:financy_app/src/models/user_model.dart';
+import 'package:financy_app/src/features/auth/interactor/entity/user_model.dart';
 
 abstract interface class AuthService {
   Future<UserModel> signUp(
