@@ -12,6 +12,6 @@ class AppModule extends Module {
         ChildRoute('/onboarding', child: (_, __) => const OnboardingPage()),
         ChildRoute('/login', child: (_, __) => const LoginPage()),
         ChildRoute('/sign', child: (_, __) => const SignUpPage()),
-        ChildRoute('/plash', child: (_, __) => const HomePage())
+        ChildRoute('/home', child: (_, __) => const HomePage())
       ];
 }

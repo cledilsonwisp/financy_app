@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:financy_app/src/features/auth/sign_up_state.dart';
+import 'package:financy_app/src/features/auth/interactor/states/sign_up_state.dart';
 import 'package:flutter/material.dart';
 
 class SignUpControllerClass extends ChangeNotifier {

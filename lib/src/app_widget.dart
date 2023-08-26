@@ -13,6 +13,7 @@ class App extends StatelessWidget {
       designSize: const Size(375, 812), // Tamanho base do design
       scaleByHeight: true,
     );
+    Modular.setInitialRoute('/login');
     return MaterialApp.router(
       theme: AppTheme.defaultTheme(),
       debugShowCheckedModeBanner: false,

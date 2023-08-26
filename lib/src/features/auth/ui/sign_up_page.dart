@@ -10,7 +10,7 @@ import 'package:financy_app/src/core/widgets/custom_text_form_field.dart';
 import 'package:financy_app/src/core/widgets/multi_text_button.dart';
 import 'package:financy_app/src/core/widgets/primary_button.dart';
 import 'package:financy_app/src/features/auth/sign_up_controller.dart';
-import 'package:financy_app/src/features/auth/sign_up_state.dart';
+import 'package:financy_app/src/features/auth/interactor/states/sign_up_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
