@@ -4,13 +4,9 @@ import 'package:financy_app/src/core/constants/app_colors.dart';
 import 'package:financy_app/src/core/constants/app_text_styles.dart';
 import 'package:financy_app/src/core/utils/dinamic_size_responsive.dart';
 import 'package:financy_app/src/core/utils/validator.dart';
-import 'package:financy_app/src/core/widgets/custom_bottom_sheet.dart';
-import 'package:financy_app/src/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:financy_app/src/core/widgets/custom_text_form_field.dart';
 import 'package:financy_app/src/core/widgets/multi_text_button.dart';
 import 'package:financy_app/src/core/widgets/primary_button.dart';
-import 'package:financy_app/src/features/auth/sign_up_controller.dart';
-import 'package:financy_app/src/features/auth/interactor/states/sign_up_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,31 +24,30 @@ class _SignUpPageState extends State<SignUpPage> {
   bool isHiddendConfirmPassword = true;
   final passwordController = TextEditingController();
 
-  final controller = SignUpControllerClass();
   @override
   void initState() {
-    controller.addListener(() {
-      if (controller.state is SignUpLoadingState) {
-        showDialog(
-          context: context,
-          builder: (context) => const CustomCircularProgressIndicator(),
-        );
-      }
-      if (controller.state is SignUpSuccessState) {
-        Navigator.pop(context);
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const Scaffold(
-                body: Text('Nova tela'),
-              ),
-            ));
-      }
-      if (controller.state is SignUpErrorState) {
-        Navigator.pop(context);
-        customModalBottomSheet(context);
-      }
-    });
+    // controller.addListener(() {
+    //   if (controller.state is SignUpLoadingState) {
+    //     showDialog(
+    //       context: context,
+    //       builder: (context) => const CustomCircularProgressIndicator(),
+    //     );
+    //   }
+    //   if (controller.state is SignUpSuccessState) {
+    //     Navigator.pop(context);
+    //     Navigator.push(
+    //         context,
+    //         MaterialPageRoute(
+    //           builder: (context) => const Scaffold(
+    //             body: Text('Nova tela'),
+    //           ),
+    //         ));
+    //   }
+    //   if (controller.state is SignUpErrorState) {
+    //     Navigator.pop(context);
+    //     customModalBottomSheet(context);
+    //   }
+    // });
     super.initState();
   }
 
@@ -146,7 +141,7 @@ class _SignUpPageState extends State<SignUpPage> {
               var valid = formKey.currentState != null &&
                   formKey.currentState!.validate();
               if (valid) {
-                controller.doSignUp();
+                // controller.doSignUp();
               } else {
                 log("Lógica  de login");
               }

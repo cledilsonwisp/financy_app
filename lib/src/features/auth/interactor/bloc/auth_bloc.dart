@@ -7,7 +7,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthService service;
   AuthBloc(this.service) : super(const LogoutedAuthState()) {
     on<LoginAuthEvent>((event, emit) => _loginAuthEvent);
-    on<LoginAuthEvent>((event, emit) => _logoutAuthEvent);
+    on<LogoutAuthEvent>((event, emit) => _logoutAuthEvent);
   }
 
   void _loginAuthEvent(LoginAuthEvent event, emit) async {
@@ -19,7 +19,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(newState);
   }
 
-  void _logoutAuthEvent(LoginAuthEvent event, emit) async {
+  void _logoutAuthEvent(LogoutAuthEvent event, emit) async {
     emit(const LoadingAuthState());
     await service.logout();
   }

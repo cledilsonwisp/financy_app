@@ -7,6 +7,6 @@ class LoginAuthEvent implements AuthEvent {
   LoginAuthEvent({required this.email, required this.password});
 }
 
-class Logout implements AuthEvent{
+class LogoutAuthEvent  implements AuthEvent{
   
 }

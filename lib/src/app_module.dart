@@ -1,11 +1,23 @@
+import 'package:financy_app/src/features/auth/data/services/firebase_auth_service.dart';
+import 'package:financy_app/src/features/auth/interactor/bloc/auth_bloc.dart';
+import 'package:financy_app/src/features/auth/interactor/services/auth_service.dart';
 import 'package:financy_app/src/features/auth/ui/login_page.dart';
 import 'package:financy_app/src/features/auth/ui/sign_up_page.dart';
 import 'package:financy_app/src/features/home/ui/home_page.dart';
 import 'package:financy_app/src/features/onboarding/ui/onboarding_page.dart';
 import 'package:financy_app/src/features/splash/ui/splash_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AppModule extends Module {
+
+  @override
+  List<Bind<Object>> get binds => [
+    Bind.instance(FirebaseAuth.instance),
+    Bind.factory<AuthService>((i) => FirebaseAuthSevice(firebaseAuth: i())),
+    Bind.singleton((i) => AuthBloc(i()))
+  ];
+
   @override
   List<ModularRoute> get routes => [
         ChildRoute('/', child: (_, __) => const SplashPage()),

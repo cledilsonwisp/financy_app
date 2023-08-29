@@ -5,8 +5,5 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
   runApp(ModularApp(module: AppModule(), child: const App()));
 }
