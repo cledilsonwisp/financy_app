@@ -8,15 +8,15 @@ import 'package:financy_app/src/features/onboarding/ui/onboarding_page.dart';
 import 'package:financy_app/src/features/splash/ui/splash_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:modular_bloc_bind/modular_bloc_bind.dart';
 
 class AppModule extends Module {
-
   @override
   List<Bind<Object>> get binds => [
-    Bind.instance(FirebaseAuth.instance),
-    Bind.factory<AuthService>((i) => FirebaseAuthSevice(firebaseAuth: i())),
-    Bind.singleton((i) => AuthBloc(i()))
-  ];
+        Bind.instance(FirebaseAuth.instance),
+        Bind.factory<AuthService>((i) => FirebaseAuthSevice(firebaseAuth: i())),
+        BlocBind.singleton((i) => AuthBloc(i()))
+      ];
 
   @override
   List<ModularRoute> get routes => [
